@@ -6,7 +6,7 @@ const initialState = {
   logged: false,
   tokenInfo: {
     token: "",
-    id: 0,
+    id: "",
     role: ""
   }
 };

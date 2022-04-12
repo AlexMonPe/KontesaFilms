@@ -11,7 +11,7 @@ import {
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const roleState = useSelector((state) => state.tokenInfo.role)
+  const roleState = useSelector((state) => state.tokenInfo.role);
 
   const loginSubmit = async (e) => {
     // Make the submit dont refresh the page
@@ -33,12 +33,12 @@ const Login = () => {
 
       if (loginUser) {
         dispatch(actionCreator(TOKEN_INFO, loginUser));
-        
-        if(roleState == "admin"){
-          console.log('role admiiiiiin') // actions for admins like redirect to dashboard
-        }else{
-          dispatch(actionCreator(USER_LOGGED))
-          console.log('user logged cambiado a true')
+
+        if (roleState == "admin") {
+          console.log("role admiiiiiin"); // actions for admins like redirect to dashboard
+        } else {
+          dispatch(actionCreator(USER_LOGGED));
+          navigate("/rents/byuser/");
         }
 
         // dispatch(actionCreator(USER_LOGGED));
