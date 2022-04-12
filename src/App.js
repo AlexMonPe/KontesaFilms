@@ -7,6 +7,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element=""></Route>
+        <Route path="/login" element=""></Route>
+        <Route path="/signup" element=""></Route>
+        <Route path="/rents/:id" element=""></Route>
+        <Route path="/allrents" element=""></Route>
       </Routes>
     </BrowserRouter>
   </div>;
