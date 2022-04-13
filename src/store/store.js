@@ -31,6 +31,11 @@ const reducer = (state = initialState, action) => {
   if (action.type === USER_LOGOUT) {
     return {
       ...state,
+      tokenInfo: {
+        token: "",
+        id: "",
+        role: "",
+      },
       logged: false,
     };
   }
