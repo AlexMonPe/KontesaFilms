@@ -4,6 +4,7 @@ import Login from "./components/Login/Login.js";
 import Register from "./components/Register/Register";
 import Rents from "./components/Rents/Rents";
 import Header from "./components/Header/Header";
+import Footer from "./containers/Footer/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/rents/byuser/" element={<Rents />}></Route>
           <Route path="/allrents" element=""></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

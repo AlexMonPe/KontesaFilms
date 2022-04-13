@@ -1,0 +1,17 @@
+footer{
+    background-color: black;
+    border-top: 1px solid goldenrod;
+    color: goldenrod;
+    display: flex;
+    height: 5em;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
+}
+
+.linkFooter{
+    color: gray;
+}
+.linkFooter:hover{
+color: white;
+}
