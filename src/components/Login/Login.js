@@ -7,6 +7,7 @@ import {
   USER_LOGGED,
   VER_POPUP,
 } from "../../store/typesVar";
+import "./Login.css"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -56,14 +57,15 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-black h-96">
+    <div className="login-page">
       <h2>LOGIN</h2>
-      <form onSubmit={(e) => loginSubmit(e)} className="formUsuario">
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <input type="submit" value="Sign in" />
+      <form onSubmit={(e) => loginSubmit(e)} className="login">
+        <label className="labelogin" htmlFor="email">Email</label>
+        <input className="inputlogin" type="email" id="email" name="email" />
+        <label className="labelogin" htmlFor="password">Password</label>
+        <input className="inputlogin" type="password" id="password" name="password" />
+        <input className="submitlogin" type="submit" value="Sign in" />
+        <p className="loginRedirect">New to KontesaFilms? <a href="/register">Sign up now</a></p>
       </form>
     </div>
   );
