@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import getRents from "../../services/getRents";
+import "./Rents.css"
 
 const Rents = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Rents = () => {
     loadRents(idUser);
   }, []);
   return (
-    <div>
+    <div className="rents">
       <h3>
         This is the rents of my profile!!!!! <br />
         {rents.map((rent) => {
