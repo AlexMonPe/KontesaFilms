@@ -4,4 +4,8 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  // purge: {
+  //   enable: true,
+  //   content: ["./src/**/*.html"]
+  // }
 };
