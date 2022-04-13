@@ -74,7 +74,7 @@ const Header = () => {
               <a
                 onClick={() => {
                   dispatch(actionCreator(USER_LOGOUT));
-                navegar("/login")
+                navigate("/login")
                 }}
               >
                 Logout
