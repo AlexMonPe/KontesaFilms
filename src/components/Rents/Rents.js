@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import getRents from "../../services/getRents";
-import "./Rents.css"
+import getRentsByUser from "../../services/getRentsByUser";
+import "./Rents.css";
 
 const Rents = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const Rents = () => {
   useEffect(() => {
     const loadRents = async () => {
       try {
-        const rents = await getRents(idUser);
+        const rents = await getRentsByUser(idUser);
 
         setRents(rents);
       } catch (error) {
@@ -24,17 +24,31 @@ const Rents = () => {
   }, []);
   return (
     <div className="rents">
-      <h3>
-        This is the rents of my profile!!!!! <br />
-        {rents.map((rent) => {
-          return (
-            <div>
-              <h3>{rent.idMovie.title}</h3>
-              <h3>{rent.idMovie.price.$numberDecimal}</h3>
-            </div>
-          );
-        })}
-      </h3>
+      <tr>
+        <th>Movie Name</th>
+        <th>Rented date</th>
+        <th>Return date</th>
+        <th>Prices</th>
+      </tr>
+      {rents.map((rent) => {
+        console.log(rents, 'rentssss')
+        return (
+          <div className="tableRents">
+            <td>
+            <h3>{rent.idMovie.title}</h3>
+            </td>
+            <td>
+            <h3>{rent.rent_date}</h3>
+            </td>
+            <td>
+            <h3>{rent.return_date}</h3>
+            </td>
+            <td>
+            <h3>{rent.price}</h3>
+            </td>
+          </div>
+        );
+      })}
     </div>
   );
 };
