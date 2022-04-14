@@ -8,23 +8,26 @@ import Footer from "./containers/Footer/Footer";
 import Home from "./components/Home/Home";
 import Detail from "./containers/Detail/Detail";
 import { useSelector } from "react-redux";
+import { ErrorComponent } from "./components/Error/Error";
 
 function App() {
-  const logged = useSelector((state) => state.logged)
+  const logged = useSelector((state) => state.logged);
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/detail/:id" element={<Detail />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/rents/byuser/" element={<Rents />}></Route>
-          <Route path="/allrents" element=""></Route>
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <ErrorComponent>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/detail/:id" element={<Detail />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/rents/byuser/" element={<Rents />}></Route>
+            <Route path="/allrents" element=""></Route>
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </ErrorComponent>
     </div>
   );
 }
