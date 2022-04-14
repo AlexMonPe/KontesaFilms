@@ -1,34 +1,66 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import getMoviesById from "../../services/getMoviesById";
-import "./Detail.css"
+import postRent from "../../services/postRent";
+import "./Detail.css";
 
 const Detail = () => {
   const params = useParams();
-
-  const [movie, setMovie] = useState();
+  const navigate = useNavigate()
+  const userId = useSelector((state) => state.tokenInfo.id);
+  const [movie, setMovie] = useState([]);
 
   useEffect(() => {
+    console.log("entra al useEfect");
     const loadMovie = async () => {
       try {
         const foundedMovie = await getMoviesById(params.id);
         console.log(foundedMovie, "founded movie antes del setmovie");
-        setMovie(foundedMovie);
+        setMovie(foundedMovie[0]);
       } catch (error) {
         console.log(error, "Fatal error getting  movie");
       }
     };
     loadMovie();
   }, []);
-  console.log(movie, "movie before return");
-  const basePathImg = "http://image.tmdb.org/t/p/w200";
+  console.log(userId, "userID before return");
   return (
-    <div className="detailPage">
-      <div className="text-white">
-        <p>{movie.overview}</p>
+    <div className="movieCard">
+      <div className="containerCard">
+        <img className="imagemovieCard" src={movie.image}></img>
+        <div className="flex flex-row gap-4 justify-center items-center flex-wrap p-4">
+          <span className="text-amber-400 underline leading-3">Genre: </span>
+          <span>{movie.genre}</span>
+          <span className="text-amber-400 underline leading-3">Actor: </span>
+          <span>{movie.actor}</span>
+          <span className="text-amber-400 underline leading-3">Price: </span>
+          <span>{movie.price}€</span>
+          <div>
+            <button
+              className="trailer"
+              onClick={() => {
+                postRent(movie._id, movie.price, userId);
+                navigate("/")
+              }}
+            >
+              Rent
+            </button>
+            <button className="trailer">
+              <a href={movie.trailer}>Play Trailer</a>
+            </button>
+          </div>
+        </div>
+
+        <p className="flex flex-col items-center text-center">
+          <h2 className="p-6 text-3xl text-amber-400 leading-3 underline mb-6">
+            Overview
+          </h2>
+          {movie.overview}
+        </p>
       </div>
     </div>
   );
 };
-//<img src={`${basePathImg}/${movie.poster_path}`}></img>
+
 export default Detail;
