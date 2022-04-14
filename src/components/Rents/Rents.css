@@ -4,3 +4,13 @@
     min-height: 100vh;
     color: white;
 }
+
+.tableRents{
+    background-color: red;
+}
+td{
+    padding: 1em;
+}
+th{
+    padding: 1em;
+}
