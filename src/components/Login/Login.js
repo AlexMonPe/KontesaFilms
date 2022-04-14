@@ -23,7 +23,7 @@ const Login = () => {
         password: e.target[1].value,
       };
 
-      let loginUser = await fetch("http://localhost:4000/users/login", {
+      let loginUser = await fetch("https://api-restfull-movies-nodejs.herokuapp.com/users/login", {
         method: "POST",
         body: JSON.stringify(loginData),
         headers: {
@@ -39,7 +39,7 @@ const Login = () => {
           console.log("role admiiiiiin"); // actions for admins like redirect to dashboard
         } else {
           dispatch(actionCreator(USER_LOGGED));
-          navigate("/rents/byuser/");
+          navigate("/");
         }
 
         // dispatch(actionCreator(USER_LOGGED));
