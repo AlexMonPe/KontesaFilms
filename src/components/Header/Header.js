@@ -48,7 +48,7 @@ const Header = () => {
           <div>
             <img
               className="imageLogo"
-              src="./images/LogoKontesaFilms_svg.png"
+              src="/images/LogoKontesaFilms_svg.png"
               alt="logo"
             ></img>
           </div>
