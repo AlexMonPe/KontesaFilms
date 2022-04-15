@@ -20,7 +20,6 @@ const Home = () => {
     };
     loadMovies();
   }, []);
-  const basePathImg = "";
   console.log(movies, 'content of popular movies before return')
   return (
     <div className="home-page">
