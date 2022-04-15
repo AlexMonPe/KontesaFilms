@@ -8,6 +8,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
   const logged = useSelector((state) => state.logged);
+  const idUser = useSelector((state)=> state.tokenInfo.id)
   console.log(logged)
 
   return (
@@ -65,7 +66,7 @@ const Header = () => {
             <div className="links">
               <a
                 onClick={() => {
-                  navigate("/rents/byuser");
+                  navigate("/rents/byuser/" + idUser);
                 }}
               >
                 My rents
