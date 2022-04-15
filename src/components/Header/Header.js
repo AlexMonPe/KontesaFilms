@@ -9,7 +9,7 @@ const Header = () => {
   const dispatch = useDispatch()
   const logged = useSelector((state) => state.logged);
   const idUser = useSelector((state)=> state.tokenInfo.id)
-  console.log(logged)
+  const admin = useSelector(state => state.admin)
 
   return (
     <header>
@@ -70,6 +70,45 @@ const Header = () => {
                 }}
               >
                 My rents
+              </a>
+            </div>
+            <div className="links">
+              <a
+                onClick={() => {
+                  dispatch(actionCreator(USER_LOGOUT));
+                navigate("/login")
+                }}
+              >
+                Logout
+              </a>
+            </div>
+          </div>
+        </div>)}
+        {admin && (<div className="header">
+          <div>
+            <img
+              className="imageLogo"
+              src="/images/LogoKontesaFilms_svg.png"
+              alt="logo"
+            ></img>
+          </div>
+          <div className="box-links">
+            <div className="links">
+              <a
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Home
+              </a>
+            </div>
+            <div className="links">
+              <a
+                onClick={() => {
+                  navigate("/dashboard")
+                }}
+              >
+                Dashboard
               </a>
             </div>
             <div className="links">
