@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import actionCreator from "../../store/actionTypes";
 import {
   CERRAR_POPUP,
+  IS_ADMIN,
   TOKEN_INFO,
   USER_LOGGED,
   VER_POPUP,
@@ -34,9 +36,11 @@ const Login = () => {
 
       if (loginUser) {
         dispatch(actionCreator(TOKEN_INFO, loginUser));
-
-        if (roleState == "admin") {
-          console.log("role admiiiiiin"); // actions for admins like redirect to dashboard
+        console.log(roleState, 'rolestateeeeeeeee despues de token info')
+        if (roleState === "Admin") {
+          dispatch(actionCreator(IS_ADMIN));
+          console.log('es admin!!!')
+          navigate("/dashboard")
         } else {
           dispatch(actionCreator(USER_LOGGED));
           navigate("/");
