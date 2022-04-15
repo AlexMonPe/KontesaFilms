@@ -1,8 +1,9 @@
 import { devToolsEnhancer } from "redux-devtools-extension";
 import { createStore } from "redux";
-import { TOKEN_INFO, USER_LOGGED, USER_LOGOUT } from "./typesVar";
+import { IS_ADMIN, TOKEN_INFO, USER_LOGGED, USER_LOGOUT } from "./typesVar";
 
 const initialState = {
+  admin: false,
   logged: false,
   tokenInfo: {
     token: "",
@@ -12,6 +13,13 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  if(action.type === IS_ADMIN){
+    return{
+      ...state,
+      admin: true
+    }
+  }
+
   if (action.type === TOKEN_INFO) {
     return {
       ...state,
