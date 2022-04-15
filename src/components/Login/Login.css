@@ -10,8 +10,7 @@
 
 .login{
     background-color: black;
-    height: 22em;
-    width: 23em;
+    padding: 3em;
     display: flex;
     color: white;
     flex-direction: column;
