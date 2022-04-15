@@ -24,28 +24,28 @@ const Rents = () => {
   }, []);
   return (
     <div className="rents">
-      <tr>
-        <th>Movie Name</th>
-        <th>Rented date</th>
-        <th>Return date</th>
-        <th>Prices</th>
-      </tr>
+      <div className="trTable">
+        <div className="font-bold">MOVIE NAME</div>
+        <div className="font-bold">RENT DATE</div>
+        <div className="font-bold">RETURN DATE</div>
+        <div className="font-bold">PRICE</div>
+      </div>
       {rents.map((rent) => {
         console.log(rents, 'rentssss')
         return (
           <div className="tableRents">
-            <td>
+            <div>
             <h3>{rent.idMovie.title}</h3>
-            </td>
-            <td>
+            </div>
+            <div>
             <h3>{rent.rent_date}</h3>
-            </td>
-            <td>
+            </div>
+            <div>
             <h3>{rent.return_date}</h3>
-            </td>
-            <td>
-            <h3>{rent.price}</h3>
-            </td>
+            </div>
+            <div>
+            <h3>{rent.totalPrice} €</h3>
+            </div>
           </div>
         );
       })}
