@@ -1,0 +1,54 @@
+.dashboard {
+  background-image: url("https://i.pinimg.com/originals/0a/4d/cb/0a4dcb92fa2d3c601b58d72720d6bec4.jpg");
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.dashboardLinks {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+  color: #9985ff;
+  width: 15em;
+}
+.dashboardPanel button:hover {
+  color: white;
+  border: 1px solid #d420da;
+}
+.dashboardPanel h2 {
+  color: #ff009e;
+}
+
+.dashboardPanel {
+  background-color: black;
+  opacity: 0.6;
+  min-height: 100vh;
+  width: 15em;
+  border-right: 2px solid #d420da;
+}
+.userCard {
+    background-color: #211b03;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+    justify-items: center;
+    border: 1px solid goldenrod;
+    box-shadow: 0 0 17px 5px goldenrod;
+    padding: 0.5em;
+    height: 6em;
+    width: 20em;
+
+  }
+.rentsCard {
+  background-color: #211b03;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(50px, 1fr));
+  grid-template-rows: repeat(2, minmax(50px, 1fr));
+  justify-content: center;
+  align-items: center;
+  border: 1px solid goldenrod;
+  box-shadow: 0 0 17px 5px goldenrod;
+  padding: 1em;
+}
+
