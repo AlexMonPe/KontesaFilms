@@ -1,16 +1,34 @@
-.rents{
+.rents {
     background-image: url("../../../public/images/avengers.jpg");
     background-size: cover;
     min-height: 100vh;
     color: white;
-}
-
-.tableRents{
-    background-color: red;
-}
-td{
     padding: 1em;
 }
-th{
-    padding: 1em;
+.tableRents {
+    background-color: #4d3e059c;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
+    border: 1px solid goldenrod;
+    box-shadow: 0 0 17px 5px goldenrod;
+}
+.tableRents div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid goldenrod;
+    padding: 0.5em;
+}
+.trTable{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
+}
+.trTable div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: goldenrod;
+    border: 1px solid goldenrod;
+    background-color: black;
+    padding: 0.5em;
 }
