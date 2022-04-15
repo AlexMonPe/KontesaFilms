@@ -58,8 +58,8 @@ const Login = () => {
 
   return (
     <div className="login-page">
-      <h2>LOGIN</h2>
       <form onSubmit={(e) => loginSubmit(e)} className="login">
+      <h2 className="p-2 text-3xl text-amber-400 underline">LOGIN</h2>
         <label className="labelogin" htmlFor="email">Email</label>
         <input className="inputlogin" type="email" id="email" name="email" />
         <label className="labelogin" htmlFor="password">Password</label>
