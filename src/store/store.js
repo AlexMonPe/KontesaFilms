@@ -1,6 +1,6 @@
 import { devToolsEnhancer } from "redux-devtools-extension";
 import { createStore } from "redux";
-import { IS_ADMIN, TOKEN_INFO, USER_LOGGED, USER_LOGOUT } from "./typesVar";
+import { CLOSE_POPUP, IS_ADMIN, SET_MOVIES, SHOW_POPUP, TOKEN_INFO, USER_LOGGED, USER_LOGOUT } from "./typesVar";
 
 const initialState = {
   admin: false,
@@ -10,9 +10,17 @@ const initialState = {
     id: "",
     role: "",
   },
+  movies : undefined,
+  popup: { visible: false, text: "" },
 };
 
 const reducer = (state = initialState, action) => {
+  if(action.type === SET_MOVIES){
+    return{
+      ...state,
+      movies: action.payload
+    }
+  }
   if(action.type === IS_ADMIN){
     return{
       ...state,
@@ -45,6 +53,19 @@ const reducer = (state = initialState, action) => {
         role: "",
       },
       logged: false,
+    };
+  }
+  if (action.type === SHOW_POPUP) {
+    return {
+      ...state,
+      popup: { visible: true, text: action.payload },
+    };
+  }
+
+  if (action.type === CLOSE_POPUP) {
+    return {
+      ...state,
+      popup: { visible: false },
     };
   }
   return state;
