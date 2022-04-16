@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import HomeMovies from "../../containers/HomeMovies/HomeMovies.js";
 import getMovies from "../../services/getMovies.js";
+import actionCreator from "../../store/actionTypes.js";
+import { SET_MOVIES } from "../../store/typesVar.js";
+import Search from "../Search/Search.js";
 import "./Home.css";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
-  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const loadMovies = async () => {
@@ -14,8 +18,9 @@ const Home = () => {
         const movies = await getMovies();
         console.log(movies, "movies before setState");
         setMovies(movies);
+        dispatch(actionCreator(SET_MOVIES, movies))
       } catch (error) {
-        console.log(error, "Fatal error getting mMovies");
+        console.log(error, "Fatal error getting Movies");
       }
     };
     loadMovies();
