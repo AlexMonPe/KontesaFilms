@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import actionCreator from "../../store/actionTypes";
 import { USER_LOGOUT } from "../../store/typesVar";
 import "./Header.css";
@@ -9,15 +9,17 @@ const Header = () => {
   const dispatch = useDispatch()
   const logged = useSelector((state) => state.logged);
   const idUser = useSelector((state)=> state.tokenInfo.id)
-  const admin = useSelector(state => state.admin)
-
+  //const admin = useSelector(state => state.admin)
+  const roleState = useSelector(state => state.tokenInfo.role)
+console.log(roleState, ' role en headerrr')
   return (
     <header>
+      
       {!logged && (
         <div className="header">
           <div>
             <img
-              className="imageLogo"
+              className="imageLogo invisible sm:visible"
               src="
               /images/LogoKontesaFilms_svg.png"
               alt="logo"
@@ -45,10 +47,10 @@ const Header = () => {
           </div>
         </div>
       )}
-      {logged && (<div className="header">
+      {logged && roleState=='client' && (<div className="header">
           <div>
             <img
-              className="imageLogo"
+              className="imageLogo invisible sm:visible"
               src="/images/LogoKontesaFilms_svg.png"
               alt="logo"
             ></img>
@@ -61,6 +63,15 @@ const Header = () => {
                 }}
               >
                 Home
+              </a>
+            </div>
+            <div className="links">
+              <a
+                onClick={() => {
+                  navigate("/search");
+                }}
+              >
+                MovieFilter
               </a>
             </div>
             <div className="links">
@@ -84,7 +95,7 @@ const Header = () => {
             </div>
           </div>
         </div>)}
-        {admin && (<div className="header">
+        {roleState=='Admin' && (<div className="header">
           <div>
             <img
               className="imageLogo"
@@ -105,10 +116,28 @@ const Header = () => {
             <div className="links">
               <a
                 onClick={() => {
+                  navigate("/search");
+                }}
+              >
+                MovieFilter
+              </a>
+            </div>
+            <div className="links">
+              <a
+                onClick={() => {
                   navigate("/dashboard")
                 }}
               >
                 Dashboard
+              </a>
+            </div>
+            <div className="links">
+              <a
+                onClick={() => {
+                  navigate("/rents/byuser/" + idUser);
+                }}
+              >
+                My rents
               </a>
             </div>
             <div className="links">
