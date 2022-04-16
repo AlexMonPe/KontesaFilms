@@ -5,6 +5,7 @@ import actionCreator from "../../store/actionTypes";
 import {
   CERRAR_POPUP,
   IS_ADMIN,
+  SHOW_POPUP,
   TOKEN_INFO,
   USER_LOGGED,
   VER_POPUP,
@@ -36,15 +37,16 @@ const Login = () => {
 
       if (loginUser) {
         dispatch(actionCreator(TOKEN_INFO, loginUser));
-        console.log(roleState, 'rolestateeeeeeeee despues de token info')
-        if (roleState === "Admin") {
-          dispatch(actionCreator(IS_ADMIN));
-          console.log('es admin!!!')
-          navigate("/dashboard")
-        } else {
+        // console.log(roleState, 'rolestateeeeeeeee despues de token info')
+        // if (roleState === "Admin") {
+        //   dispatch(actionCreator(IS_ADMIN));
+        //   console.log('es admin!!!')
+        //   navigate("/dashboard")
+        // } else {
           dispatch(actionCreator(USER_LOGGED));
-          navigate("/");
-        }
+          dispatch(actionCreator(SHOW_POPUP, "Welcome to Kontesa Films"))
+          setTimeout(()=> navigate("/"),4000);
+        //}
 
         // dispatch(actionCreator(USER_LOGGED));
         // dispatch(
