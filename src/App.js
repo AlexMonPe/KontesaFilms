@@ -10,9 +10,12 @@ import Detail from "./containers/Detail/Detail";
 import { useSelector } from "react-redux";
 import { ErrorComponent } from "./components/Error/Error";
 import Dashboard from "./containers/Dashboard/Dashboard";
+import Search from "./components/Search/Search";
+import PopUp from "./containers/Popup/PopUp";
 
 function App() {
   const logged = useSelector((state) => state.logged);
+  const popupState = useSelector((state) => state.popup); 
   return (
     <div className="App">
       <ErrorComponent>
@@ -25,8 +28,10 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/rents/byuser/:id" element={<Rents />}></Route>
             <Route path="/dashboard" element={<Dashboard />}></Route>
+            <Route path="/search" element={<Search />}></Route>
           </Routes>
           <Footer />
+          {popupState.visible && <PopUp />}
         </BrowserRouter>
       </ErrorComponent>
     </div>
