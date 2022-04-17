@@ -141,3 +141,7 @@ Para poder modificar el proyecto o visualizar el código:
   * Enorme agradecimiento a Pablo, por paciencia y dedicación y su clara vocación a ayudar a los demas.
   * A nuestros compañeros que siempre estan dispuestos a ayudar como un equipo de remo.
   * Mi compañero Mihai que me ayuda a mejorar día a día con su perspectiva y sus buenas pácticas.
+
+## License
+
+GNU General Public License v3.0
