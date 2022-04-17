@@ -1,11 +1,13 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import useLoading from "../../hooks/useLoading";
 import usePopup from "../../hooks/usePopup";
 import { apiConsumer } from "../../services/apiConsumer";
 import "./Register.css";
 
 const Register = () => {
   const popUp = usePopup();
+  const loading = useLoading()
   const navigate = useNavigate();
   const registerSubmit = async (e) => {
     // Make the submit dont refresh the page
@@ -19,7 +21,8 @@ const Register = () => {
       const userCreated = await apiConsumer.createUser(formData)
      
       if (userCreated) {
-        popUp("Register successfully");
+        popUp("Register successfully, LOG IN");
+        loading()
         setTimeout(() => navigate("/login"), 3500);
       }
     } catch (error) {
