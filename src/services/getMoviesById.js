@@ -6,7 +6,6 @@ const getMoviesById = async (movie_id) => {
     }
   );
   const movieData = await movie.json();
-  console.log(movieData, "movie in getmoviesid");
   return movieData;
 };
 
