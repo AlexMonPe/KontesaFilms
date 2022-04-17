@@ -9,7 +9,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.logged);
   const idUser = useSelector((state) => state.tokenInfo.id);
-  //const admin = useSelector(state => state.admin)
   const roleState = useSelector((state) => state.tokenInfo.role);
 
   if (roleState === "Admin") dispatch(actionCreator(IS_ADMIN));

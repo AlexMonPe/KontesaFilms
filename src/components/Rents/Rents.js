@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import getRentsByUser from "../../services/getRentsByUser";
 import "./Rents.css";
 
 const Rents = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const idUser = useSelector((state) => state.tokenInfo.id);
   const [rents, setRents] = useState([]);
 
@@ -31,20 +28,20 @@ const Rents = () => {
         <div className="font-bold">PRICE</div>
       </div>
       {rents.map((rent) => {
-        console.log(rents, 'rentssss')
+        console.log(rents, "rentssss");
         return (
           <div className="tableRents">
             <div>
-            <h3>{rent.idMovie.title}</h3>
+              <h3>{rent.idMovie.title}</h3>
             </div>
             <div>
-            <h3>{rent.rent_date}</h3>
+              <h3>{rent.rent_date}</h3>
             </div>
             <div>
-            <h3>{rent.return_date}</h3>
+              <h3>{rent.return_date}</h3>
             </div>
             <div>
-            <h3>{rent.totalPrice} €</h3>
+              <h3>{rent.totalPrice} €</h3>
             </div>
           </div>
         );

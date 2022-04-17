@@ -27,9 +27,7 @@ const Register = () => {
       const userCreated = await createUser.json();
 
       if (userCreated) {
-        console.log("usuario creado redireccion", userCreated);
-        //   dispatch(actionCreator(VER_POPUP, "Usuario creado. Bienvenido"));
-        dispatch(actionCreator(SHOW_POPUP, "You register is done! Thank you!"));
+        dispatch(actionCreator(SHOW_POPUP, "Register is done! Thank you!"));
         setTimeout(() => navigate("/login"), 3500);
       }
     } catch (error) {
