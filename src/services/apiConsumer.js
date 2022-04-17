@@ -17,7 +17,7 @@ export const apiConsumer = {
     }
   },
   createUser: async (formData) => {
-    try {
+    try {  
       const createUser = await fetch(
         "https://api-restfull-movies-nodejs.herokuapp.com/users/register",
         {
