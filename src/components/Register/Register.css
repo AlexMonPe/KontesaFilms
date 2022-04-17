@@ -10,6 +10,7 @@
 }
 
 .createUser{
+    font-family: vogue;
     background-color: black;
     height: 29em;
     width: 23em;
@@ -37,7 +38,7 @@
 .buttonUser{
     border-bottom: 1px solid goldenrod;
     padding: 0.5em;
-    margin-top: 2em;
+    margin: 2em;
     cursor: pointer;
     color: rgb(133, 98, 11);
 }
@@ -46,7 +47,8 @@
      color: goldenrod;
 }
 .h1User{
-    font-size: 2em;
+    font-family: sadAvenue;
+    font-size: 4em;
     border-bottom: 2px solid gold;
     color: gold;
 }
