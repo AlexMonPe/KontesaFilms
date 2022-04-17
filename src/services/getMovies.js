@@ -6,9 +6,7 @@ const getMovies = async () => {
     }
   );
   const moviesData = await movies.json();
-  console.log(moviesData,'movies in getmoviees');
   return moviesData;
 };
 
 export default getMovies;
-
