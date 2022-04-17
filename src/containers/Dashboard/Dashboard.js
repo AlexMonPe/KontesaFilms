@@ -43,12 +43,12 @@ const Dashboard = () => {
           <button className="dashboardLinks" onClick={() => showMovies()}>
             ALL MOVIES
           </button>
-          <a href="#" className="dashboardLinks" onClick={() => showRents()}>
+          <button className="dashboardLinks" onClick={() => showRents()}>
             ALL RENTS
-          </a>
-          <a href="#" className="dashboardLinks" onClick={() => showUsers()}>
+          </button>
+          <button className="dashboardLinks" onClick={() => showUsers()}>
             ALL USERS
-          </a>
+          </button>
           {movies && (
             <>
               <p className="text-white font-bold border-2 bg-red text-center">
