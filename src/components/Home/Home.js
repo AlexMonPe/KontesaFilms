@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import HomeMovies from "../../containers/HomeMovies/HomeMovies.js";
-import getMovies from "../../services/getMovies.js";
+import { apiConsumer } from "../../services/apiConsumer.js";
 import actionCreator from "../../store/actionTypes.js";
 import { SET_MOVIES } from "../../store/typesVar.js";
 import "./Home.css";
@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const loadMovies = async () => {
       try {
-        const movies = await getMovies();
+        const movies = await apiConsumer.getMovies();
         setMovies(movies);
         dispatch(actionCreator(SET_MOVIES, movies));
       } catch (error) {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import getRentsByUser from "../../services/getRentsByUser";
+import { apiConsumer } from "../../services/apiConsumer";
+
 import "./Rents.css";
 
 const Rents = () => {
@@ -10,7 +11,7 @@ const Rents = () => {
   useEffect(() => {
     const loadRents = async () => {
       try {
-        const rents = await getRentsByUser(idUser);
+        const rents = await apiConsumer.getRentsByUser(idUser);
 
         setRents(rents);
       } catch (error) {

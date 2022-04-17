@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import usePopup from "../../hooks/usePopup";
+import { apiConsumer } from "../../services/apiConsumer";
 import "./Register.css";
 
 const Register = () => {
@@ -15,25 +16,14 @@ const Register = () => {
         email: e.target[1].value,
         password: e.target[2].value,
       };
-
-      const createUser = await fetch(
-        "https://api-restfull-movies-nodejs.herokuapp.com/users/register",
-        {
-          method: "POST",
-          body: JSON.stringify(formData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const userCreated = await createUser.json();
-
+      const userCreated = await apiConsumer.createUser(formData)
+     
       if (userCreated) {
-        popUp("Register is done! Thank you!");
+        popUp("Register successfully");
         setTimeout(() => navigate("/login"), 3500);
       }
     } catch (error) {
-      alert("no se ha cargado la bd " + error);
+      popUp("no se ha cargado la bd " + error);
     }
   };
 
