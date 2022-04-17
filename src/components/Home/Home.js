@@ -9,8 +9,7 @@ import "./Home.css";
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const dispatch = useDispatch();
-
-  useEffect(() => {
+    useEffect(() => {
     const loadMovies = async () => {
       try {
         const movies = await apiConsumer.getMovies();
