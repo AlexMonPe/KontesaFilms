@@ -28,7 +28,6 @@ const Rents = () => {
         <div className="font-bold">PRICE</div>
       </div>
       {rents.map((rent) => {
-        console.log(rents, "rentssss");
         return (
           <div className="tableRents">
             <div>
