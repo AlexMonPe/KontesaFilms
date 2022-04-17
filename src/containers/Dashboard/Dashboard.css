@@ -31,22 +31,57 @@
 .userCard {
   background-color: #211b03;
   display: grid;
-  grid-template-columns: repeat(3, minmax(50px, 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
   border: 1px solid goldenrod;
   box-shadow: 0 0 17px 5px goldenrod;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 1em;
+  width: 31em;
+}
+.rentsGrid {
+  padding: 4em;
+  opacity: 0.9;
+  font-size: 12px;
+  margin: 0 auto;
+}
+.rentsTable {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(50px, 1fr));
+  border: 1px solid goldenrod;
+}
+.rentsTable div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: goldenrod;
+  background-color: black;
   padding: 0.5em;
-  height: 6em;
-  width: 20em;
 }
 .rentsCard {
   background-color: #211b03;
   display: grid;
-  grid-template-columns: repeat(3, minmax(50px, 1fr));
-  grid-template-rows: repeat(2, minmax(50px, 1fr));
-  justify-content: center;
-  align-items: center;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
   border: 1px solid goldenrod;
   box-shadow: 0 0 17px 5px goldenrod;
-  padding: 1em;
+  height: 7em;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 1em;
+}
+.usersTable {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(50px, 26em));
+  border: 1px solid goldenrod;
+  width: 31em;
+}
+.usersTable div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: goldenrod;
+  background-color: black;
+  padding: 0.5em;
 }

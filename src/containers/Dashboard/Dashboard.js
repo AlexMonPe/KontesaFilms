@@ -4,7 +4,7 @@ import { apiConsumer } from "../../services/apiConsumer";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-  const moviesState = useSelector(state => state.movies)
+  const moviesState = useSelector((state) => state.movies);
   const [rents, setRents] = useState();
   const [users, setUsers] = useState();
   const [movies, setMovies] = useState();
@@ -72,48 +72,54 @@ const Dashboard = () => {
           </div>
         )}
         {rents && (
-          <div className="flex flex-row flex-wrap gap-4 p-4 justify-center">
+          <div className="rentsGrid">
+            <div className="rentsTable">
+              <div className="font-bold">EMAIL</div>
+              <div className="font-bold">TITLE</div>
+              <div className="font-bold">RENT DATE</div>
+              <div className="font-bold">RETURN DATE</div>
+              <div className="font-bold">PRICE</div>
+            </div>
             {rents.map((rent) => {
               return (
                 <div className="rentsCard">
-                  <p className="text-white bg-red p-2">
-                    <p>Email:</p> {rent.idUser.email}
+                  <p className="text-white bg-red p-2 border">
+                  {rent.idUser.email}
                   </p>
                   <p className="text-white bg-red p-2">
-                    <p>Rent date:</p>
+                    {rent.idMovie.title}
+                  </p>
+                  <p className="text-white bg-red p-2">
                     {rent.rent_date}
                   </p>
                   <p className="text-white bg-red p-2">
-                    <p>Return date:</p>
                     {rent.return_date}
                   </p>
                   <p className="text-white bg-red p-2">
-                    <p>Price: </p>
                     {rent.totalPrice}
                   </p>
-                  <p className="text-white bg-red p-2">
-                    <p>Title: </p>
-                    {rent.idMovie.title}
-                  </p>
+                  
                 </div>
               );
             })}
           </div>
         )}
         {users && (
-          <div className="flex p-6 gap-4 flex-row flex-wrap">
+          <div className="rentsGrid">
+            <div className="usersTable">
+              <div className="font-bold">NAME</div>
+              <div className="font-bold">EMAIL</div>
+              <div className="font-bold">ROLE</div>
+            </div>
             {users.map((user) => {
               return (
                 <div className="userCard">
-                  <p className="text-white bg-red p-2">
-                    <p>Name:</p> {user.name}
+                  <p className="text-white bg-red p-2">{user.name}
                   </p>
                   <p className="text-white bg-red p-2">
-                    <p>email:</p>
                     {user.email}
                   </p>
                   <p className="text-white bg-red p-2">
-                    <p>Role:</p>
                     {user.role}
                   </p>
                 </div>
