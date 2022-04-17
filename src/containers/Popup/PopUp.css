@@ -1,5 +1,6 @@
 .popup {
   position: fixed;
+  box-sizing: border-box;
   top: 7em;
   right: 2em;
   z-index: 99;
