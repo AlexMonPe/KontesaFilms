@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import usePopup from "../../hooks/usePopup";
+import { apiConsumer } from "../../services/apiConsumer";
 import actionCreator from "../../store/actionTypes";
 import { TOKEN_INFO, USER_LOGGED } from "../../store/typesVar";
 import "./Login.css";
@@ -18,17 +19,8 @@ const Login = () => {
         email: e.target[0].value,
         password: e.target[1].value,
       };
-      let loginUser = await fetch(
-        "https://api-restfull-movies-nodejs.herokuapp.com/users/login",
-        {
-          method: "POST",
-          body: JSON.stringify(loginData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      loginUser = await loginUser.json();
+    
+      const loginUser = await apiConsumer.loginUser(loginData)
 
       if (loginUser) {
         dispatch(actionCreator(TOKEN_INFO, loginUser));
@@ -36,7 +28,7 @@ const Login = () => {
         popUp("Welcome to Kontesa Films");
         setTimeout(() => navigate("/"), 3000);
       } else {
-        alert("Usuario y/o contraseña incorrecto");
+        popUp("User or passoword are wrong");
       }
     } catch (error) {
       console.log(error);
