@@ -1,17 +1,18 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import getMovies from "../../services/getMovies";
 import getRents from "../../services/getRents";
 import getUsers from "../../services/getUsers";
 import "./Dashboard.css";
 
 const Dashboard = () => {
+  const moviesState = useSelector(state => state.movies)
   const [rents, setRents] = useState();
   const [users, setUsers] = useState();
   const [movies, setMovies] = useState();
 
   const showMovies = async () => {
-    const moviesRes = await getMovies();
-    setMovies(moviesRes);
+    setMovies(moviesState);
     setRents(undefined);
     setUsers(undefined);
   };
