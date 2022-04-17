@@ -15,8 +15,6 @@ const Search = () => {
   const filterTitle = (e) => {
     setSelectValue(e.target.value);
   };
-
-  console.log(selectValue);
   useEffect(() => {
     let results = [];
     if (selectValue == "title") {
