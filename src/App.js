@@ -12,10 +12,12 @@ import { ErrorComponent } from "./components/Error/Error";
 import Dashboard from "./containers/Dashboard/Dashboard";
 import Search from "./components/Search/Search";
 import PopUp from "./containers/Popup/PopUp";
+import Loading from "./containers/Loading/Loading";
 
 function App() {
   const popupState = useSelector((state) => state.popup); 
   const admin = useSelector(state => state.admin)
+  const loading = useSelector(state => state.loading)
   return (
     <div className="App">
       <ErrorComponent>
@@ -31,6 +33,7 @@ function App() {
             <Route path="/search" element={<Search />}></Route>
           </Routes>
           <Footer />
+          {loading && <Loading />}          
           {popupState.visible && <PopUp />}
         </BrowserRouter>
       </ErrorComponent>
