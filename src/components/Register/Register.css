@@ -12,7 +12,7 @@
 .createUser{
     font-family: vogue;
     background-color: black;
-    height: 29em;
+    height: 34em;
     width: 23em;
     display: flex;
     color: white;
@@ -46,9 +46,9 @@
     box-shadow: 0px 0px 5px 5px goldenrod;
      color: goldenrod;
 }
-.h1User{
+.h2User{
     font-family: sadAvenue;
     font-size: 4em;
-    border-bottom: 2px solid gold;
-    color: gold;
+    text-decoration: underline;
+    color: goldenrod;
 }
