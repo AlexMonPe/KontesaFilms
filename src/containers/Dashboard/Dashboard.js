@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import getMovies from "../../services/getMovies";
-import getRents from "../../services/getRents";
-import getUsers from "../../services/getUsers";
+import { apiConsumer } from "../../services/apiConsumer";
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -17,13 +15,13 @@ const Dashboard = () => {
     setUsers(undefined);
   };
   const showRents = async () => {
-    const rentsRes = await getRents();
+    const rentsRes = await apiConsumer.getRents();
     setRents(rentsRes);
     setMovies(undefined);
     setUsers(undefined);
   };
   const showUsers = async () => {
-    const usersRes = await getUsers();
+    const usersRes = await apiConsumer.getUsers();
     setUsers(usersRes);
     setMovies(undefined);
     setRents(undefined);
