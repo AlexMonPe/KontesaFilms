@@ -1,28 +1,20 @@
-export const apiConsumer = async (method, uri, body) => {
-    const options = {
-        method,
-    }
-    if (method === 'POST') {
-        options.body = JSON.stringify(body);
-        options.header = {
-            'Content-Type': 'application/json',
+export const apiConsumer = {
+    loginUser: async (loginData) => {
+        try{
+            let loginUser = await fetch(
+                "https://api-restfull-movies-nodejs.herokuapp.com/users/login",
+                {
+                  method: "POST",
+                  body: JSON.stringify(loginData),
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+              loginUser = await loginUser.json();
+              return loginUser
+        }catch(error){
+            console.log(error, 'error in login user apiconsumer')
         }
     }
-    try {
-        const res = await fetch(uri, options)
-        return await res.json();
-    } catch (error) {
-        console.log(error)
-    }
 }
-
-/**
- * export const loginUser = async (formData) => {
-    try {
-        const {token} = await apiConsumer('POST', userLoginPath, formData);
-        if (token) return tokenDecoder(token);
-    } catch (error) {
-        console.log('User Login has failed');
-    }
-}
- */
