@@ -4,32 +4,25 @@
   top: 7em;
   right: 2em;
   z-index: 99;
-  transition: transform .6s ease-in-out;
-  animation: banner-in-right .7s;
+  transition: transform 0.6s ease-in-out;
+  animation: banner-in-right 0.7s;
   background-color: black;
   border-radius: 1em;
   border: 2px solid goldenrod;
   color: goldenrod;
   padding: 2em;
-  opacity: .9;
+  opacity: 0.9;
   box-shadow: 0 0 8px 8px;
   font-family: vogue;
 }
-
 .popup:hover {
-	box-shadow: 0 0 12px #fff;
+  box-shadow: 0 0 12px #fff;
 }
-
-
-
-
-
 @keyframes banner-in-right {
-	from {
-	  transform: translateX(100%);
-	  
-	}
-	to {
-	  transform: translateX(0);
-	}
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

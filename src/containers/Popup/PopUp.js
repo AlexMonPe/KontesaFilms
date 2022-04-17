@@ -4,19 +4,18 @@ import { CLOSE_POPUP } from "../../store/typesVar";
 import "./PopUp.css";
 
 const PopUp = () => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const popupState = useSelector((state) => state.popup);
 
-
-  const closePopUp = () =>{
-    dispatch(actionCreator(CLOSE_POPUP))
-  }
-  setTimeout(closePopUp,3000)
+  const closePopUp = () => {
+    dispatch(actionCreator(CLOSE_POPUP));
+  };
+  setTimeout(closePopUp, 3000);
   return (
     <div>
-        <div className="popup">
-          <p>{popupState.text}</p>
-        </div>
+      <div className="popup">
+        <p>{popupState.text}</p>
+      </div>
     </div>
   );
 };

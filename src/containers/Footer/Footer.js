@@ -15,7 +15,6 @@ const Footer = () => {
       <div className="linkFooter">
         <a href="https://help.netflix.com/legal/corpinfo">Cookie Preferences</a>
       </div>
-
     </footer>
   );
 };

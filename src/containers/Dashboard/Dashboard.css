@@ -3,7 +3,6 @@
   background-size: cover;
   min-height: 100vh;
 }
-
 .dashboardLinks {
   display: flex;
   flex-direction: column;
@@ -22,7 +21,6 @@
   color: #ff009e;
   font-family: vogue;
 }
-
 .dashboardPanel {
   background-color: black;
   opacity: 0.6;
@@ -31,17 +29,16 @@
   border-right: 2px solid #d420da;
 }
 .userCard {
-    background-color: #211b03;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(50px, 1fr));
-    justify-items: center;
-    border: 1px solid goldenrod;
-    box-shadow: 0 0 17px 5px goldenrod;
-    padding: 0.5em;
-    height: 6em;
-    width: 20em;
-
-  }
+  background-color: #211b03;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(50px, 1fr));
+  justify-items: center;
+  border: 1px solid goldenrod;
+  box-shadow: 0 0 17px 5px goldenrod;
+  padding: 0.5em;
+  height: 6em;
+  width: 20em;
+}
 .rentsCard {
   background-color: #211b03;
   display: grid;
@@ -53,4 +50,3 @@
   box-shadow: 0 0 17px 5px goldenrod;
   padding: 1em;
 }
-

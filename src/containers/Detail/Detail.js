@@ -9,17 +9,15 @@ import "./Detail.css";
 
 const Detail = () => {
   const params = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.tokenInfo.id);
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    console.log("entra al useEfect");
     const loadMovie = async () => {
       try {
         const foundedMovie = await getMoviesById(params.id);
-        console.log(foundedMovie, "founded movie antes del setmovie");
         setMovie(foundedMovie[0]);
       } catch (error) {
         console.log(error, "Fatal error getting  movie");
@@ -27,7 +25,6 @@ const Detail = () => {
     };
     loadMovie();
   }, []);
-  console.log(userId, "userID before return");
   return (
     <div className="movieCard">
       <div className="containerCard">
@@ -44,8 +41,10 @@ const Detail = () => {
               className="trailer"
               onClick={() => {
                 postRent(movie._id, movie.price, userId);
-                dispatch(actionCreator(SHOW_POPUP, `You rented ${movie.title}`))
-                setTimeout(()=>navigate("/")) 
+                dispatch(
+                  actionCreator(SHOW_POPUP, `You rented ${movie.title}`)
+                );
+                setTimeout(() => navigate("/"));
               }}
             >
               Rent

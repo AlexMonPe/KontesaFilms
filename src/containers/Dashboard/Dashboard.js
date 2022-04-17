@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import Search from "../../components/Search/Search";
+import { useState } from "react";
 import getMovies from "../../services/getMovies";
 import getRents from "../../services/getRents";
 import getUsers from "../../services/getUsers";
@@ -21,18 +20,13 @@ const Dashboard = () => {
     setRents(rentsRes);
     setMovies(undefined);
     setUsers(undefined);
-    console.log(rentsRes, "data rentss");
   };
   const showUsers = async () => {
     const usersRes = await getUsers();
     setUsers(usersRes);
     setMovies(undefined);
     setRents(undefined);
-    console.log(usersRes, "data userss");
   };
-  //useEffect(() => {}, []);
-
-  console.log(movies, "movies despues de setmovies");
   return (
     <div className="dashboard">
       <div className="flex flex-row">
@@ -132,5 +126,4 @@ const Dashboard = () => {
     </div>
   );
 };
-
 export default Dashboard;
