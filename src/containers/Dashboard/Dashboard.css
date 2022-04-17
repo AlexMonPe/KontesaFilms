@@ -12,6 +12,7 @@
   align-items: center;
   color: #9985ff;
   width: 15em;
+  font-family: vogue;
 }
 .dashboardPanel button:hover {
   color: white;
@@ -19,6 +20,7 @@
 }
 .dashboardPanel h2 {
   color: #ff009e;
+  font-family: vogue;
 }
 
 .dashboardPanel {
