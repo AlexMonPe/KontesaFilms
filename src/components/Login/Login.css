@@ -1,0 +1,65 @@
+.newFont {
+  font-family: sadAvenue;
+  font-size: 4em;
+}
+
+.login-page {
+  font-family: vogue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("../../../public/images/movie-collage.jpg");
+  background-size: cover;
+}
+
+.login {
+  background-color: black;
+  padding: 2em;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 5px goldenrod;
+}
+.labelogin {
+  opacity: 1;
+  margin: 1em;
+  border-bottom: 2px solid goldenrod;
+  font-size: 20px;
+}
+.inputlogin {
+  font-family: sans-serif;
+  opacity: 1;
+  width: 15em;
+  color: black;
+  text-align: center;
+}
+.submitlogin {
+  border-bottom: 1px solid goldenrod;
+  padding: 0.5em;
+  margin-top: 2em;
+  cursor: pointer;
+  color: rgb(133, 98, 11);
+}
+.submitlogin:hover {
+  box-shadow: 0px 0px 5px 5px goldenrod;
+  color: goldenrod;
+}
+.loginRedirect {
+  margin-top: 1em;
+  color: gray;
+}
+.loginRedirect a {
+  margin: 1em;
+  color: rgba(255, 255, 255, 0.741);
+}
+.loginRedirect a:hover {
+  margin: 1em;
+  color: white;
+  text-decoration: underline;
+}

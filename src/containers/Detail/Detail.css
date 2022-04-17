@@ -1,0 +1,43 @@
+.movieCard {
+  background-image: url("../../../public/images/detail-page.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  padding: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.imagemovieCard {
+  height: 23em;
+  width: 18em;
+  display: block;
+  border: 1px solid goldenrod
+}
+.containerCard {
+  margin: 0 auto;
+  color: white;
+  background-color: #000000c7;
+  width: 53em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid goldenrod;
+  padding: 2em;
+  box-shadow: 0px 0px 10px 7px #2f2902;
+}
+.trailer {
+  height: 3em;
+  width: 8em;
+  background-color: black;
+  color: goldenrod;
+  text-decoration: underline;
+  margin: 1em;
+  border: 1px solid goldenrod;
+}
+.trailer:hover {
+  box-shadow: 0px 0px 5px 5px goldenrod;
+  color: white;
+}

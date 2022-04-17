@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 5em;
+  font-family: vogue;
+  border-bottom: 2px solid goldenrod;
+  background-color: black;
+  align-items: center;
+  padding: 1em;
+}
+
+.imageLogo {
+  width: 16em;
+}
+
+.box-links {
+  color: rgb(235, 201, 8);
+  display: flex;
+  gap: 25px;
+  margin-right: 2em;
+  cursor: pointer;
+}
+.links {
+  border-bottom: 1px solid rgb(235, 201, 8);
+  padding: 0.7em;
+}
+.links:hover {
+  box-shadow: 0px 0px 6px 5px rgb(235, 201, 8);
+}
