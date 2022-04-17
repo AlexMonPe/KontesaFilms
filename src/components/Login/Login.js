@@ -1,14 +1,14 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import usePopup from "../../hooks/usePopup";
 import actionCreator from "../../store/actionTypes";
-import { SHOW_POPUP, TOKEN_INFO, USER_LOGGED } from "../../store/typesVar";
+import { TOKEN_INFO, USER_LOGGED } from "../../store/typesVar";
 import "./Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
+  const popUp = usePopup();
   const dispatch = useDispatch();
-  const roleState = useSelector((state) => state.tokenInfo.role);
 
   const loginSubmit = async (e) => {
     // Make the submit dont refresh the page
@@ -33,7 +33,7 @@ const Login = () => {
       if (loginUser) {
         dispatch(actionCreator(TOKEN_INFO, loginUser));
         dispatch(actionCreator(USER_LOGGED));
-        dispatch(actionCreator(SHOW_POPUP, "Welcome to Kontesa Films"));
+        popUp("Welcome to Kontesa Films");
         setTimeout(() => navigate("/"), 3000);
       } else {
         alert("Usuario y/o contraseña incorrecto");

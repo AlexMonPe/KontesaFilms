@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import usePopup from "../../hooks/usePopup";
 import getMoviesById from "../../services/getMoviesById";
 import postRent from "../../services/postRent";
-import actionCreator from "../../store/actionTypes";
-import { SHOW_POPUP } from "../../store/typesVar";
 import "./Detail.css";
 
 const Detail = () => {
   const params = useParams();
+  const popUp = usePopup;
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const userId = useSelector((state) => state.tokenInfo.id);
   const [movie, setMovie] = useState([]);
 
@@ -41,9 +40,7 @@ const Detail = () => {
               className="trailer"
               onClick={() => {
                 postRent(movie._id, movie.price, userId);
-                dispatch(
-                  actionCreator(SHOW_POPUP, `You rented ${movie.title}`)
-                );
+                popUp(`You rented ${movie.title}`);
                 setTimeout(() => navigate("/"));
               }}
             >

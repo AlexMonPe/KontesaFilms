@@ -14,7 +14,6 @@ import Search from "./components/Search/Search";
 import PopUp from "./containers/Popup/PopUp";
 
 function App() {
-  const logged = useSelector((state) => state.logged);
   const popupState = useSelector((state) => state.popup); 
   const admin = useSelector(state => state.admin)
   return (

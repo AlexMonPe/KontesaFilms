@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import usePopup from "../../hooks/usePopup";
 import actionCreator from "../../store/actionTypes";
-import { IS_ADMIN, SHOW_POPUP, USER_LOGOUT } from "../../store/typesVar";
+import { IS_ADMIN, USER_LOGOUT } from "../../store/typesVar";
 import "./Header.css";
 
 const Header = () => {
   const navigate = useNavigate();
+  const popUp = usePopup();
   const dispatch = useDispatch();
   const logged = useSelector((state) => state.logged);
   const idUser = useSelector((state) => state.tokenInfo.id);
@@ -88,7 +90,7 @@ const Header = () => {
               <a
                 onClick={() => {
                   dispatch(actionCreator(USER_LOGOUT));
-                  dispatch(actionCreator(SHOW_POPUP, "LOG OUT SUCCESS"));
+                  popUp("LOG OUT SUCCESS");
                   setTimeout(() => navigate("/login"), 3500);
                 }}
               >
@@ -148,7 +150,7 @@ const Header = () => {
               <a
                 onClick={() => {
                   dispatch(actionCreator(USER_LOGOUT));
-                  dispatch(actionCreator(SHOW_POPUP, "LOG OUT SUCCESS"));
+                  popUp("LOG OUT SUCCESS");
                   setTimeout(() => navigate("/login"), 3500);
                 }}
               >

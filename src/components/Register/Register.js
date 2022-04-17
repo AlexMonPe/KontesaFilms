@@ -1,11 +1,10 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import actionCreator from "../../store/actionTypes";
-import { SHOW_POPUP } from "../../store/typesVar";
+import usePopup from "../../hooks/usePopup";
 import "./Register.css";
 
 const Register = () => {
-  const dispatch = useDispatch();
+  const popUp = usePopup();
   const navigate = useNavigate();
   const registerSubmit = async (e) => {
     // Make the submit dont refresh the page
@@ -17,17 +16,20 @@ const Register = () => {
         password: e.target[2].value,
       };
 
-      const createUser = await fetch("https://api-restfull-movies-nodejs.herokuapp.com/users/register", {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const createUser = await fetch(
+        "https://api-restfull-movies-nodejs.herokuapp.com/users/register",
+        {
+          method: "POST",
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const userCreated = await createUser.json();
 
       if (userCreated) {
-        dispatch(actionCreator(SHOW_POPUP, "Register is done! Thank you!"));
+        popUp("Register is done! Thank you!");
         setTimeout(() => navigate("/login"), 3500);
       }
     } catch (error) {
