@@ -142,6 +142,6 @@ Para poder modificar el proyecto o visualizar el código:
   * A nuestros compañeros que siempre estan dispuestos a ayudar como un equipo de remo.
   * Mi compañero Mihai que me ayuda a mejorar día a día con su perspectiva y sus buenas pácticas.
 
-## License
+## Licencia
 
 GNU General Public License v3.0
