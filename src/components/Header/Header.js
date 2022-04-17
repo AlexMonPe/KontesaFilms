@@ -1,20 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import actionCreator from "../../store/actionTypes";
-import { USER_LOGOUT } from "../../store/typesVar";
+import { IS_ADMIN, SHOW_POPUP, USER_LOGOUT } from "../../store/typesVar";
 import "./Header.css";
 
 const Header = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const logged = useSelector((state) => state.logged);
-  const idUser = useSelector((state)=> state.tokenInfo.id)
+  const idUser = useSelector((state) => state.tokenInfo.id);
   //const admin = useSelector(state => state.admin)
-  const roleState = useSelector(state => state.tokenInfo.role)
-console.log(roleState, ' role en headerrr')
+  const roleState = useSelector((state) => state.tokenInfo.role);
+
+  if (roleState === "Admin") dispatch(actionCreator(IS_ADMIN));
+
   return (
     <header>
-      
       {!logged && (
         <div className="header">
           <div>
@@ -47,7 +48,8 @@ console.log(roleState, ' role en headerrr')
           </div>
         </div>
       )}
-      {logged && roleState=='client' && (<div className="header">
+      {logged && roleState == "client" && (
+        <div className="header">
           <div>
             <img
               className="imageLogo invisible sm:visible"
@@ -87,15 +89,18 @@ console.log(roleState, ' role en headerrr')
               <a
                 onClick={() => {
                   dispatch(actionCreator(USER_LOGOUT));
-                navigate("/login")
+                  dispatch(actionCreator(SHOW_POPUP, "LOG OUT SUCCESS"));
+                  setTimeout(() => navigate("/login"), 3500);
                 }}
               >
                 Logout
               </a>
             </div>
           </div>
-        </div>)}
-        {roleState=='Admin' && (<div className="header">
+        </div>
+      )}
+      {roleState == "Admin" && (
+        <div className="header">
           <div>
             <img
               className="imageLogo"
@@ -125,7 +130,7 @@ console.log(roleState, ' role en headerrr')
             <div className="links">
               <a
                 onClick={() => {
-                  navigate("/dashboard")
+                  navigate("/dashboard");
                 }}
               >
                 Dashboard
@@ -144,14 +149,16 @@ console.log(roleState, ' role en headerrr')
               <a
                 onClick={() => {
                   dispatch(actionCreator(USER_LOGOUT));
-                navigate("/login")
+                  dispatch(actionCreator(SHOW_POPUP, "LOG OUT SUCCESS"));
+                  setTimeout(() => navigate("/login"), 3500);
                 }}
               >
                 Logout
               </a>
             </div>
           </div>
-        </div>)}
+        </div>
+      )}
     </header>
   );
 };
