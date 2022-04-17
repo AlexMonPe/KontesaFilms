@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 
 const Loading = () =>{
     const dispatch = useDispatch()
-    console.log('aparece loading')
     const closeLoading = () => {
         dispatch(actionCreator(CLOSE_LOADING));
       };
