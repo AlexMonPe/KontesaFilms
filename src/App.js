@@ -16,6 +16,7 @@ import PopUp from "./containers/Popup/PopUp";
 function App() {
   const logged = useSelector((state) => state.logged);
   const popupState = useSelector((state) => state.popup); 
+  const admin = useSelector(state => state.admin)
   return (
     <div className="App">
       <ErrorComponent>
@@ -27,7 +28,7 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/rents/byuser/:id" element={<Rents />}></Route>
-            <Route path="/dashboard" element={<Dashboard />}></Route>
+            {admin && <Route path="/dashboard" element={<Dashboard />}></Route>}
             <Route path="/search" element={<Search />}></Route>
           </Routes>
           <Footer />
