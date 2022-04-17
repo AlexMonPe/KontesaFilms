@@ -1,5 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import actionCreator from "../../store/actionTypes";
+import { SHOW_POPUP } from "../../store/typesVar";
 import "./Register.css";
 
 const Register = () => {
@@ -15,7 +17,7 @@ const Register = () => {
         password: e.target[2].value,
       };
 
-      const createUser = await fetch("http://localhost:4000/users/register", {
+      const createUser = await fetch("https://api-restfull-movies-nodejs.herokuapp.com/users/register", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
@@ -27,8 +29,8 @@ const Register = () => {
       if (userCreated) {
         console.log("usuario creado redireccion", userCreated);
         //   dispatch(actionCreator(VER_POPUP, "Usuario creado. Bienvenido"));
-        //   setTimeout(() => dispatch(actionCreator(CERRAR_POPUP)), 3000);
-        navigate("/login");
+        dispatch(actionCreator(SHOW_POPUP, "You register is done! Thank you!"));
+        setTimeout(() => navigate("/login"), 3500);
       }
     } catch (error) {
       alert("no se ha cargado la bd " + error);
@@ -38,7 +40,7 @@ const Register = () => {
   return (
     <div className="register-page">
       <form onSubmit={(e) => registerSubmit(e)} className="createUser">
-        <h1 className="h1User">SIGN UP</h1>
+        <h2 className="h2User">SIGN UP</h2>
         <label className="labelUser" htmlFor="name">
           Name
         </label>
